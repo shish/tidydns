@@ -1,0 +1,23 @@
+; vim:ft=bindzone
+$TTL    300
+
+@       IN      SOA     ns1.tidydns.org. webmaster.shishnet.org. (
+                        2010211448 ; Serial
+                        300   ; Refresh
+                        300   ; Retry
+                        300   ; Expire
+                        300 ) ; Minimum
+
+; entries commented out here since they're in the DB
+tidydns.org.             IN NS   ns1.tidydns.org.
+tidydns.org.             IN A    81.171.46.249
+;ns1.tidydns.org.         IN A    81.171.46.249
+
+; clients attempt to connect to these
+;master4                        IN A    81.171.46.249
+;master6                        IN AAAA 2002:51ab:2ef9::1
+
+;; start dynamic ;;
+master                         IN A    81.171.46.249
+master4                        IN A    81.171.46.249
+master6                        IN AAAA 2002:51ab:2ef9::1

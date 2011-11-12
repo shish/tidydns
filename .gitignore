@@ -1,0 +1,3 @@
+db/ddns.db
+logs/*
+run/supervise

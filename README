@@ -1,0 +1,48 @@
+
+app/
+  contains a python application based on web.py, running the script should
+  cause a web server to open on port 8080 (?)
+
+db/
+  has ddns.db, an SQLite3 database, with tables:
+
+  CREATE TABLE user(
+  	id INTEGER PRIMARY KEY,
+	username VARCHAR(128) NOT NULL,
+	password CHAR(32) NOT NULL
+  );
+  CREATE TABLE domain(
+  	id INTEGER PRIMARY KEY,
+	name TEXT NOT NULL,
+	serial INTEGER NOT NULL
+  );
+  CREATE TABLE record(
+  	id INTEGER PRIMARY KEY,
+	user_id INTEGER NOT NULL,
+	name TEXT NOT NULL,
+	domain TEXT NOT NULL,
+	address TEXT NOT NULL,
+	last_update INTEGER NOT NULL
+  );
+
+htdocs/
+  static files to serve
+
+logs/
+  where the application log will go, and web server logs if your web server
+  is set up that way
+
+run/
+  a startup script if you want to use tidydns with runit; the script runs
+  the app in fastcgi unix socket mode for nginx to connect to
+
+tidydns.org.zone
+  an example bind zone file, stuff before ";; start dynamic ;;" is left as it
+  is, stuff after the marker is generated from the database
+
+
+Other notes:
+
+tidydns needs to be able to reload the bind config, so in /etc/sudoers
+
+tddnsusername ALL=NOPASSWD: /etc/init.d/bind9 reload
