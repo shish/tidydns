@@ -1,3 +1,5 @@
-db/ddns.db
+app/ddns.db
 logs/*
 run/supervise
+*.swp
+*.pyc

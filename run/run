@@ -1,5 +1,0 @@
-#!/bin/sh
-
-exec 2>&1
-ulimit -v 512000
-exec /home/shish/bin/spawn-fcgi -n -s /tmp/fcgi-ddns.sock -u shish -U www-data -d /home/shish/ddns.shishnet.org/htdocs -- ../app/ddnsapp.py fastcgi
